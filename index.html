@@ -1,0 +1,702 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>ShieldLine Insurance Solutions | Modern Protection for Modern Business</title>
+  <meta name="description" content="Professional insurance technology solutions designed to streamline risk management and enhance client protection."/>
+  <style>
+    /* ===== CSS VARIABLES & RESET ===== */
+    :root {
+      --primary: #1e40af;
+      --primary-dark: #1e3a8a;
+      --secondary: #0ea5e9;
+      --accent: #22c55e;
+      --dark: #0f172a;
+      --light: #f8fafc;
+      --gray: #64748b;
+      --gray-light: #e2e8f0;
+      --shadow: 0 4px 6px -1px rgb(0 0 0 / 0.1), 0 2px 4px -2px rgb(0 0 0 / 0.1);
+      --shadow-lg: 0 10px 15px -3px rgb(0 0 0 / 0.1), 0 4px 6px -4px rgb(0 0 0 / 0.1);
+      --radius: 12px;
+      --transition: all 0.3s ease;
+    }
+    
+    * { margin: 0; padding: 0; box-sizing: border-box; }
+    
+    body {
+      font-family: 'Segoe UI', system-ui, -apple-system, sans-serif;
+      line-height: 1.6;
+      color: var(--dark);
+      background: var(--light);
+      overflow-x: hidden;
+    }
+    
+    /* ===== UTILITIES ===== */
+    .container {
+      width: 100%;
+      max-width: 1200px;
+      margin: 0 auto;
+      padding: 0 2rem;
+    }
+    
+    .section {
+      padding: 5rem 0;
+    }
+    
+    .section-title {
+      text-align: center;
+      margin-bottom: 3rem;
+    }
+    
+    .section-title h2 {
+      font-size: 2.25rem;
+      color: var(--primary-dark);
+      margin-bottom: 1rem;
+    }
+    
+    .section-title p {
+      color: var(--gray);
+      max-width: 600px;
+      margin: 0 auto;
+    }
+    
+    .btn {
+      display: inline-block;
+      padding: 0.875rem 1.75rem;
+      background: var(--primary);
+      color: white;
+      border: none;
+      border-radius: 8px;
+      font-weight: 600;
+      text-decoration: none;
+      cursor: pointer;
+      transition: var(--transition);
+    }
+    
+    .btn:hover {
+      background: var(--primary-dark);
+      transform: translateY(-2px);
+      box-shadow: var(--shadow);
+    }
+    
+    .btn-outline {
+      background: transparent;
+      border: 2px solid var(--primary);
+      color: var(--primary);
+    }
+    
+    .btn-outline:hover {
+      background: var(--primary);
+      color: white;
+    }
+    
+    /* ===== HEADER & NAV ===== */
+    header {
+      position: fixed;
+      top: 0;
+      width: 100%;
+      background: white;
+      box-shadow: var(--shadow);
+      z-index: 1000;
+      padding: 1rem 0;
+    }
+    
+    nav {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+    }
+    
+    .logo {
+      font-size: 1.5rem;
+      font-weight: 700;
+      color: var(--primary);
+      text-decoration: none;
+      display: flex;
+      align-items: center;
+      gap: 0.5rem;
+    }
+    
+    .logo-icon {
+      width: 32px;
+      height: 32px;
+      background: var(--primary);
+      border-radius: 8px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      color: white;
+      font-weight: bold;
+    }
+    
+    .nav-links {
+      display: flex;
+      gap: 2rem;
+      list-style: none;
+    }
+    
+    .nav-links a {
+      text-decoration: none;
+      color: var(--dark);
+      font-weight: 500;
+      transition: var(--transition);
+    }
+    
+    .nav-links a:hover {
+      color: var(--primary);
+    }
+    
+    .mobile-toggle {
+      display: none;
+      font-size: 1.5rem;
+      background: none;
+      border: none;
+      cursor: pointer;
+      color: var(--dark);
+    }
+    
+    /* ===== HERO SECTION ===== */
+    .hero {
+      padding: 8rem 0 5rem;
+      background: linear-gradient(135deg, #eff6ff 0%, #dbeafe 100%);
+      text-align: center;
+    }
+    
+    .hero h1 {
+      font-size: 3rem;
+      color: var(--primary-dark);
+      margin-bottom: 1.5rem;
+      line-height: 1.2;
+    }
+    
+    .hero p {
+      font-size: 1.25rem;
+      color: var(--gray);
+      max-width: 700px;
+      margin: 0 auto 2.5rem;
+    }
+    
+    .hero-buttons {
+      display: flex;
+      gap: 1rem;
+      justify-content: center;
+      flex-wrap: wrap;
+    }
+    
+    /* ===== CARDS GRID ===== */
+    .cards-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+      gap: 2rem;
+      margin-top: 2rem;
+    }
+    
+    .card {
+      background: white;
+      border-radius: var(--radius);
+      padding: 2rem;
+      box-shadow: var(--shadow);
+      transition: var(--transition);
+    }
+    
+    .card:hover {
+      transform: translateY(-4px);
+      box-shadow: var(--shadow-lg);
+    }
+    
+    .card-icon {
+      width: 56px;
+      height: 56px;
+      background: linear-gradient(135deg, var(--primary), var(--secondary));
+      border-radius: 12px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      margin-bottom: 1.5rem;
+      color: white;
+      font-size: 1.5rem;
+      font-weight: bold;
+    }
+    
+    .card h3 {
+      font-size: 1.375rem;
+      margin-bottom: 0.75rem;
+      color: var(--dark);
+    }
+    
+    .card p {
+      color: var(--gray);
+      margin-bottom: 1.5rem;
+    }
+    
+    .card-link {
+      color: var(--primary);
+      text-decoration: none;
+      font-weight: 600;
+      display: inline-flex;
+      align-items: center;
+      gap: 0.25rem;
+      transition: var(--transition);
+    }
+    
+    .card-link:hover {
+      gap: 0.5rem;
+    }
+    
+    /* ===== ABOUT SECTION ===== */
+    .about {
+      background: white;
+    }
+    
+    .about-content {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 3rem;
+      align-items: center;
+    }
+    
+    .about-text h3 {
+      font-size: 1.75rem;
+      color: var(--primary-dark);
+      margin-bottom: 1rem;
+    }
+    
+    .about-text p {
+      color: var(--gray);
+      margin-bottom: 1.5rem;
+    }
+    
+    .about-stats {
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      gap: 1.5rem;
+    }
+    
+    .stat {
+      text-align: center;
+      padding: 1.5rem;
+      background: var(--light);
+      border-radius: var(--radius);
+    }
+    
+    .stat-number {
+      font-size: 2rem;
+      font-weight: 700;
+      color: var(--primary);
+      display: block;
+    }
+    
+    .stat-label {
+      color: var(--gray);
+      font-size: 0.95rem;
+    }
+    
+    /* ===== CONTACT SECTION ===== */
+    .contact {
+      background: linear-gradient(135deg, #1e40af 0%, #0ea5e9 100%);
+      color: white;
+    }
+    
+    .contact .section-title h2 {
+      color: white;
+    }
+    
+    .contact .section-title p {
+      color: rgba(255,255,255,0.9);
+    }
+    
+    .contact-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 3rem;
+    }
+    
+    .contact-info h3 {
+      font-size: 1.5rem;
+      margin-bottom: 1.5rem;
+    }
+    
+    .contact-item {
+      display: flex;
+      gap: 1rem;
+      margin-bottom: 1.25rem;
+      align-items: flex-start;
+    }
+    
+    .contact-icon {
+      width: 40px;
+      height: 40px;
+      background: rgba(255,255,255,0.2);
+      border-radius: 10px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      flex-shrink: 0;
+    }
+    
+    .contact-form {
+      background: white;
+      padding: 2rem;
+      border-radius: var(--radius);
+      color: var(--dark);
+    }
+    
+    .form-group {
+      margin-bottom: 1.25rem;
+    }
+    
+    .form-group label {
+      display: block;
+      margin-bottom: 0.5rem;
+      font-weight: 500;
+      color: var(--dark);
+    }
+    
+    .form-group input,
+    .form-group textarea {
+      width: 100%;
+      padding: 0.875rem;
+      border: 1px solid var(--gray-light);
+      border-radius: 8px;
+      font-size: 1rem;
+      transition: var(--transition);
+    }
+    
+    .form-group input:focus,
+    .form-group textarea:focus {
+      outline: none;
+      border-color: var(--primary);
+      box-shadow: 0 0 0 3px rgba(30, 64, 175, 0.1);
+    }
+    
+    .form-group textarea {
+      min-height: 120px;
+      resize: vertical;
+    }
+    
+    /* ===== FOOTER ===== */
+    footer {
+      background: var(--dark);
+      color: rgba(255,255,255,0.8);
+      padding: 3rem 0 1.5rem;
+      text-align: center;
+    }
+    
+    .footer-links {
+      display: flex;
+      justify-content: center;
+      gap: 2rem;
+      margin: 1.5rem 0;
+      flex-wrap: wrap;
+    }
+    
+    .footer-links a {
+      color: rgba(255,255,255,0.8);
+      text-decoration: none;
+      transition: var(--transition);
+    }
+    
+    .footer-links a:hover {
+      color: white;
+    }
+    
+    .copyright {
+      font-size: 0.9rem;
+      opacity: 0.7;
+    }
+    
+    /* ===== RESPONSIVE ===== */
+    @media (max-width: 900px) {
+      .about-content,
+      .contact-grid {
+        grid-template-columns: 1fr;
+      }
+      
+      .hero h1 {
+        font-size: 2.25rem;
+      }
+      
+      .nav-links {
+        display: none;
+        position: absolute;
+        top: 100%;
+        left: 0;
+        right: 0;
+        background: white;
+        flex-direction: column;
+        padding: 1rem 2rem;
+        box-shadow: var(--shadow);
+      }
+      
+      .nav-links.active {
+        display: flex;
+      }
+      
+      .mobile-toggle {
+        display: block;
+      }
+      
+      .about-stats {
+        grid-template-columns: 1fr;
+      }
+    }
+    
+    @media (max-width: 600px) {
+      .section {
+        padding: 3rem 0;
+      }
+      
+      .hero {
+        padding: 6rem 0 4rem;
+      }
+      
+      .hero-buttons {
+        flex-direction: column;
+        align-items: center;
+      }
+      
+      .cards-grid {
+        grid-template-columns: 1fr;
+      }
+    }
+  </style>
+</head>
+<body>
+
+  <!-- ===== HEADER ===== -->
+  <header>
+    <div class="container">
+      <nav>
+        <a href="#" class="logo">
+          <span class="logo-icon">S</span>
+          ShieldLine
+        </a>
+        <button class="mobile-toggle" aria-label="Toggle menu">☰</button>
+        <ul class="nav-links">
+          <li><a href="#services">Services</a></li>
+          <li><a href="#solutions">Solutions</a></li>
+          <li><a href="#about">About</a></li>
+          <li><a href="#contact">Contact</a></li>
+        </ul>
+      </nav>
+    </div>
+  </header>
+
+  <!-- ===== HERO ===== -->
+  <section class="hero">
+    <div class="container">
+      <h1>Intelligent Insurance Solutions for a Changing World</h1>
+      <p>Empowering businesses with adaptive risk management platforms that protect assets, ensure compliance, and drive sustainable growth.</p>
+      <div class="hero-buttons">
+        <a href="#contact" class="btn">Get a Consultation</a>
+        <a href="#solutions" class="btn btn-outline">Explore Solutions</a>
+      </div>
+    </div>
+  </section>
+
+  <!-- ===== SERVICES ===== -->
+  <section id="services" class="section">
+    <div class="container">
+      <div class="section-title">
+        <h2>Our Services</h2>
+        <p>Comprehensive insurance technology services designed to modernize your risk operations</p>
+      </div>
+      <div class="cards-grid">
+        <div class="card">
+          <div class="card-icon">📊</div>
+          <h3>Risk Analytics</h3>
+          <p>Advanced data modeling and predictive analytics to identify, assess, and mitigate potential risks before they impact your operations.</p>
+          <a href="#contact" class="card-link">Learn more →</a>
+        </div>
+        <div class="card">
+          <div class="card-icon">🔄</div>
+          <h3>Claims Automation</h3>
+          <p>Streamline claims processing with intelligent workflows, reducing resolution time while improving accuracy and customer satisfaction.</p>
+          <a href="#contact" class="card-link">Learn more →</a>
+        </div>
+        <div class="card">
+          <div class="card-icon">🔐</div>
+          <h3>Compliance Management</h3>
+          <p>Stay ahead of regulatory requirements with automated monitoring, reporting tools, and audit-ready documentation systems.</p>
+          <a href="#contact" class="card-link">Learn more →</a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ===== SOLUTIONS ===== -->
+  <section id="solutions" class="section" style="background: #f1f5f9;">
+    <div class="container">
+      <div class="section-title">
+        <h2>Industry Solutions</h2>
+        <p>Tailored platforms built for specific insurance sectors and business models</p>
+      </div>
+      <div class="cards-grid">
+        <div class="card">
+          <div class="card-icon">🏢</div>
+          <h3>Commercial Insurance</h3>
+          <p>Scalable solutions for property, liability, and specialty commercial lines with integrated underwriting support.</p>
+          <a href="#contact" class="card-link">View details →</a>
+        </div>
+        <div class="card">
+          <div class="card-icon">👥</div>
+          <h3>Group Benefits</h3>
+          <p>Member-centric platforms for health, life, and disability coverage with seamless enrollment and administration.</p>
+          <a href="#contact" class="card-link">View details →</a>
+        </div>
+        <div class="card">
+          <div class="card-icon">🌍</div>
+          <h3>Global Risk Programs</h3>
+          <p>Unified management for multinational insurance portfolios with localized compliance and currency support.</p>
+          <a href="#contact" class="card-link">View details →</a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ===== ABOUT ===== -->
+  <section id="about" class="section about">
+    <div class="container">
+      <div class="about-content">
+        <div class="about-text">
+          <h3>Building Trust Through Technology</h3>
+          <p>At ShieldLine, we believe insurance should be proactive, not reactive. Our mission is to equip insurers and brokers with intelligent tools that transform risk management from a cost center into a strategic advantage.</p>
+          <p>Founded on principles of transparency, innovation, and client partnership, we deliver solutions that integrate seamlessly with existing workflows while preparing organizations for future challenges.</p>
+          <a href="#contact" class="btn">Partner With Us</a>
+        </div>
+        <div class="about-stats">
+          <div class="stat">
+            <span class="stat-number">150+</span>
+            <span class="stat-label">Insurance Partners</span>
+          </div>
+          <div class="stat">
+            <span class="stat-number">98%</span>
+            <span class="stat-label">Client Retention</span>
+          </div>
+          <div class="stat">
+            <span class="stat-number">40%</span>
+            <span class="stat-label">Avg. Process Efficiency Gain</span>
+          </div>
+          <div class="stat">
+            <span class="stat-number">24/7</span>
+            <span class="stat-label">Support & Monitoring</span>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ===== CONTACT ===== -->
+  <section id="contact" class="section contact">
+    <div class="container">
+      <div class="section-title">
+        <h2>Let's Discuss Your Needs</h2>
+        <p>Ready to modernize your insurance operations? Our team is here to help.</p>
+      </div>
+      <div class="contact-grid">
+        <div class="contact-info">
+          <h3>Get in Touch</h3>
+          <div class="contact-item">
+            <div class="contact-icon">📍</div>
+            <div>
+              <strong>Headquarters</strong><br>
+              123 Innovation Drive, Suite 400<br>
+              Johannesburg, South Africa
+            </div>
+          </div>
+          <div class="contact-item">
+            <div class="contact-icon">✉️</div>
+            <div>
+              <strong>Email</strong><br>
+              solutions@shieldline.example
+            </div>
+          </div>
+          <div class="contact-item">
+            <div class="contact-icon">📞</div>
+            <div>
+              <strong>Phone</strong><br>
+              +27 11 555 0198
+            </div>
+          </div>
+          <div class="contact-item">
+            <div class="contact-icon">🕒</div>
+            <div>
+              <strong>Business Hours</strong><br>
+              Monday–Friday: 8:00 AM – 5:00 PM SAST
+            </div>
+          </div>
+        </div>
+        <form class="contact-form" onsubmit="event.preventDefault(); alert('Thank you! We will contact you shortly.');">
+          <div class="form-group">
+            <label for="name">Full Name *</label>
+            <input type="text" id="name" name="name" required />
+          </div>
+          <div class="form-group">
+            <label for="email">Business Email *</label>
+            <input type="email" id="email" name="email" required />
+          </div>
+          <div class="form-group">
+            <label for="company">Company</label>
+            <input type="text" id="company" name="company" />
+          </div>
+          <div class="form-group">
+            <label for="message">How can we help? *</label>
+            <textarea id="message" name="message" required></textarea>
+          </div>
+          <button type="submit" class="btn" style="width: 100%;">Send Message</button>
+        </form>
+      </div>
+    </div>
+  </section>
+
+  <!-- ===== FOOTER ===== -->
+  <footer>
+    <div class="container">
+      <a href="#" class="logo" style="color: white; justify-content: center; margin-bottom: 1rem;">
+        <span class="logo-icon">S</span>
+        ShieldLine
+      </a>
+      <div class="footer-links">
+        <a href="#services">Services</a>
+        <a href="#solutions">Solutions</a>
+        <a href="#about">About</a>
+        <a href="#contact">Contact</a>
+        <a href="#">Privacy Policy</a>
+        <a href="#">Terms of Service</a>
+      </div>
+      <p class="copyright">© 2026 ShieldLine Insurance Solutions. All rights reserved. This is a demonstration template.</p>
+    </div>
+  </footer>
+
+  <!-- ===== JAVASCRIPT ===== -->
+  <script>
+    // Mobile menu toggle
+    document.querySelector('.mobile-toggle').addEventListener('click', function() {
+      document.querySelector('.nav-links').classList.toggle('active');
+    });
+    
+    // Smooth scroll for anchor links
+    document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+      anchor.addEventListener('click', function(e) {
+        e.preventDefault();
+        const target = document.querySelector(this.getAttribute('href'));
+        if (target) {
+          target.scrollIntoView({ behavior: 'smooth', block: 'start' });
+          // Close mobile menu if open
+          document.querySelector('.nav-links').classList.remove('active');
+        }
+      });
+    });
+    
+    // Form enhancement (basic)
+    document.querySelector('.contact-form').addEventListener('submit', function(e) {
+      e.preventDefault();
+      // In production, replace with actual form submission logic
+      alert('Thank you for your inquiry! Our team will reach out within 1 business day.');
+      this.reset();
+    });
+  </script>
+
+</body>
+</html>
